@@ -63,6 +63,7 @@ void MemoryPool::initMemory()
 	_pHeader->_pBlock = this;
 	_pHeader->_nRef = 0;
 	_pHeader->_isInPool = true;
+	_pHeader->_pNext = nullptr;
 
 	MemoryBlock* tmp = _pHeader;
 	for (size_t i = 1; i < _nCount; ++i) {
@@ -71,6 +72,7 @@ void MemoryPool::initMemory()
 		cur->_nID = i;
 		cur->_nRef = 0;
 		cur->_pBlock = this;
+		cur->_pNext = nullptr;
 		tmp->_pNext = cur;
 		tmp = cur;
 	}

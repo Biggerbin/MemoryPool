@@ -2,22 +2,22 @@
 #include "MemoryPool.h"
 void* operator new(size_t nSize)
 {
-	return MemoryManager::getInstance()->malloc_mem(nSize);
+	return MemoryManager::getInstance().malloc_mem(nSize);
 }
 
 void operator delete(void* p)
 {
-	MemoryManager::getInstance()->free_mem(p);
+	MemoryManager::getInstance().free_mem(p);
 }
 
 void* operator new[](size_t nSize)
 {
-	return MemoryManager::getInstance()->malloc_mem(nSize);
+	return MemoryManager::getInstance().malloc_mem(nSize);
 }
 
 void operator delete[](void* p)
 {
-	MemoryManager::getInstance()->free_mem(p);
+	MemoryManager::getInstance().free_mem(p);
 }
 
 void* mem_alloc(size_t size)
