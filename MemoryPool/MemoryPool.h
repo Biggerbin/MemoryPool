@@ -67,8 +67,8 @@ private:
 	}
 	
 public:
-	static MemoryManager& getInstance() {
-		static MemoryManager _mmgr;
+	static MemoryManager* getInstance() {
+		static MemoryManager* _mmgr = ::new MemoryManager();
 		return _mmgr;
 	};
 	void* malloc_mem(size_t nsize);
